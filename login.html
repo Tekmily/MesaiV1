@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mesai Takip - Giriş</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#9be15d" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  </head>
+  <body class="mesai-body mesai-login-page">
+    <div class="mesai-hero">
+      <div class="mesai-hero-overlay"></div>
+    </div>
+    <main class="container py-4 py-md-5 position-relative" style="z-index: 1;">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+<section id="user-login" class="mesai-card p-3 p-md-4 mb-4" aria-label="Kullanıcı girişi">
+  <header class="mesai-card-header d-flex flex-column flex-md-row justify-content-between gap-2">
+    <div>
+      <h2 class="fw-semibold">Kullanıcı Girişi</h2>
+      <p class="mesai-card-sub mb-0">
+        Kendi isminle giriş yap; verilerin bu cihaza özel olarak senin kullanıcı adına kaydedilsin.
+      </p>
+    </div>
+  </header>
+
+  <div class="row g-3 align-items-end">
+    <div class="col-12 col-md-6">
+      <label for="userName" class="mesai-label">İsim (zorunlu)</label>
+      <input type="text" id="userName" class="form-control mesai-control" placeholder="Örn: Yusuf" />
+    </div>
+    <div class="col-12 col-md-3">
+      <label for="userCode" class="mesai-label">Numara / Kod</label>
+      <input type="text" id="userCode" class="form-control mesai-control" placeholder="Örn: 01" />
+    </div>
+    <div class="col-12 col-md-3 d-grid">
+      <button id="btnUserLogin" type="button" class="btn mesai-btn-primary">
+        🔐 Giriş / Kaydet
+      </button>
+    </div>
+  </div>
+
+  <p class="mesai-small mt-2 mb-0">
+    Aynı isim (ve varsa kod) ile tekrar giriş yaptığında, daha önce bu cihazda o kullanıcı adına kaydedilmiş
+    tüm mesai kayıtların otomatik olarak yüklenir.
+  </p>
+<p id="loginCurrentUser" class="mesai-small mt-3 text-muted"></p>
+</section>
+
+        </div>
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('service-worker.js').catch(function(err) {
+        console.error('Service worker kaydedilemedi:', err);
+      });
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mesai Takip Pro – Çok Dosyalı Sürüm</title>
+
+  <!-- Bootstrap 5 (Framework) -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Proje stil dosyası -->
+  <link rel="stylesheet" href="styles.css" />
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#9be15d" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  </head>
+<body>
+  <div class="mesai-shell">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark mesai-navbar">
+      <div class="container-fluid container">
+        <a class="navbar-brand fw-semibold d-flex align-items-center gap-1" href="#giris">
+          ⏱ Mesai Takip <span>Pro</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mesaiNavbar"
+          aria-controls="mesaiNavbar"
+          aria-expanded="false"
+          aria-label="Menüyü Aç/Kapat"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mesaiNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+            <li class="nav-item">
+              <a class="nav-link mesai-nav-link active" href="#giris">Mesai Girişi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mesai-nav-link" href="#kayitlar">Kayıtlar</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mt-4">
+      <div id="mesaiMessage" class="mesai-message mesai-message--hidden" role="status" aria-live="polite">
+        <div class="mesai-message__body">
+          <span id="mesaiMessageText"></span>
+          <button type="button" class="mesai-message__close" aria-label="Kapat">×</button>
+        </div>
+      </div>
+      <!-- LOGIN SECTION -->
+      <section id="loginSection" class="mb-4">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6">
+<section id="user-login" class="mesai-card p-3 p-md-4 mb-4" aria-label="Kullanıcı girişi">
+  <header class="mesai-card-header d-flex flex-column flex-md-row justify-content-between gap-2">
+    <div>
+      <h2 class="fw-semibold">Kullanıcı Girişi</h2>
+      <p class="mesai-card-sub mb-0">
+        Kendi isminle giriş yap; verilerin bu cihaza özel olarak senin kullanıcı adına kaydedilsin.
+      </p>
+    </div>
+  </header>
+
+  <div class="row g-3 align-items-end">
+    <div class="col-12 col-md-6">
+      <label for="userName" class="mesai-label">İsim (zorunlu)</label>
+      <input type="text" id="userName" class="form-control mesai-control" placeholder="Örn: Yusuf" />
+    </div>
+    <div class="col-12 col-md-3">
+      <label for="userCode" class="mesai-label">Numara / Kod</label>
+      <input type="text" id="userCode" class="form-control mesai-control" placeholder="Örn: 01" />
+    </div>
+    <div class="col-12 col-md-3 d-grid">
+      <button id="btnUserLogin" type="button" class="btn mesai-btn-primary">
+        🔐 Giriş / Kaydet
+      </button>
+    </div>
+  </div>
+
+  <p class="mesai-small mt-2 mb-0">
+    Aynı isim (ve varsa kod) ile tekrar giriş yaptığında, daha önce bu cihazda o kullanıcı adına kaydedilmiş
+    tüm mesai kayıtların otomatik olarak yüklenir.
+  </p>
+<p id="loginCurrentUser" class="mesai-small mt-3 text-muted"></p>
+</section>
+          </div>
+        </div>
+      </section>
+      <div id="mainContent" class="mesai-main-hidden">
+      <!-- HERO -->
+      <section class="mesai-hero mb-4" aria-label="Mesai Takip Pro görsel başlık">
+        <img
+          src="https://images.pexels.com/photos/1181346/pexels-photo-1181346.jpeg?auto=compress&w=1200"
+          alt="Ofis çalışma ortamı"
+          class="mesai-hero-img active"
+        />
+        <img
+          src="https://images.pexels.com/photos/3747481/pexels-photo-3747481.jpeg?auto=compress&w=1200"
+          alt="Bilgisayar başında proje geliştirme"
+          class="mesai-hero-img"
+        />
+        <img
+          src="https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg?auto=compress&w=1200"
+          alt="Toplantı ve görev planlama"
+          class="mesai-hero-img"
+        />
+
+        <div class="mesai-hero-overlay"></div>
+        <div class="mesai-hero-content">
+          <div class="mesai-hero-badges">
+            <div class="mesai-badge-soft">
+              <span class="mesai-badge-dot"></span>
+              Canlı mesai takibi
+            </div>
+            <div class="mesai-badge-soft">Veriler sadece bu tarayıcıda 💾</div>
+          </div>
+          <h1 class="mesai-hero-title">Mesai Takip Paneli Pro</h1>
+          <p class="mesai-hero-subtitle">
+            Günlük çalışma süreni dakikası dakikasına kaydet, dilediğin zaman geriye dönüp incele.
+          </p>
+        </div>
+      </section>
+
+      <!-- AKTIF KULLANICI -->
+<section class="mesai-card p-3 p-md-4 mb-4" aria-label="Aktif kullanıcı bilgisi">
+  <header class="mesai-card-header d-flex justify-content-between align-items-center gap-2 flex-wrap">
+    <div>
+      <h2 class="fw-semibold mb-1">Aktif Kullanıcı</h2>
+      <p class="mesai-card-sub mb-0">
+        Şu anda bu cihazda oturum açmış kullanıcı.
+      </p>
+    </div>
+    <button id="btnBackToLogin" type="button" class="btn mesai-btn-ghost">
+      ⬅️ Geri Dön (Girişe)
+    </button>
+  </header>
+  <div class="mesai-card-body">
+    <p id="currentUserLabel" class="mb-0 mesai-current-user-pill">
+      Aktif kullanıcı: seçilmemiş
+    </p>
+  </div>
+</section>
+
+<section id="giris" class="row g-3 align-items-stretch mb-4" aria-label="Mesai girişi ve kullanım ritmi">
+        <!-- Sol: Form -->
+        <div class="col-12 col-lg-6">
+          <article class="mesai-card h-100 p-3 p-md-4">
+            <header class="mesai-card-header">
+              <h2 class="fw-semibold">Mesai Girişi</h2>
+              <p class="mesai-card-sub mb-0">
+                Tarih ve saat aralığını gir, net çalışma süresini hesapla ve kaydet.
+              </p>
+            </header>
+
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="workDate" class="mesai-label">Tarih</label>
+                <input type="date" id="workDate" class="form-control mesai-control" />
+              </div>
+              <div class="col-6">
+                <label for="startTime" class="mesai-label">Başlangıç Saati</label>
+                <input type="time" id="startTime" class="form-control mesai-control" value="09:00" />
+              </div>
+              <div class="col-6">
+                <label for="endTime" class="mesai-label">Bitiş Saati</label>
+                <input type="time" id="endTime" class="form-control mesai-control" value="17:00" />
+              </div>
+            </div>
+
+            <div class="mesai-result-box d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-2 mt-3 p-3">
+              <div>
+                <div class="mesai-result-label">Hesaplanan süre</div>
+                <div id="resultText" class="mesai-result-value">
+                  Saatleri girip <strong>Hesapla</strong> butonuna tıklayın.
+                </div>
+              </div>
+              <div class="mesai-small text-nowrap">
+                Gece vardiyası (23:59–06:00) otomatik algılanır.
+              </div>
+            </div>
+
+            <p class="mesai-small mt-2 mb-1">
+              Örnek: <strong>23:59 → 06:00</strong> girersen, sistem otomatik olarak ertesi güne göre hesaplar ve
+              negatif süreyi engeller.
+            </p>
+
+            <div class="d-flex flex-column flex-sm-row gap-2 mt-2">
+              <button id="btnCalc" type="button" class="btn mesai-btn-primary w-100">
+                ⏱ Hesapla
+              </button>
+              <button id="btnSave" type="button" class="btn mesai-btn-secondary w-100" disabled>
+                💾 Kaydet
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Sağ: Günün Ritmi -->
+        <div class="col-12 col-lg-6">
+          <article class="mesai-card h-100 p-3 p-md-4">
+            <header class="mesai-card-header">
+              <h2 class="fw-semibold">Günün Ritmi</h2>
+              <p class="mesai-card-sub mb-0">
+                Uygulamanın seni adım adım nasıl yönlendirdiğini net şekilde gör.
+              </p>
+            </header>
+            <ol class="mesai-rhythm-list">
+              <li>
+                <h3 class="mesai-rhythm-title">1. Adım – Bilgileri Gir</h3>
+                <p class="mesai-rhythm-text">
+                  Tarihi, işe başlama ve işten çıkış saatini doğru şekilde doldur.
+                </p>
+              </li>
+              <li>
+                <h3 class="mesai-rhythm-title">2. Adım – Süreyi Hesapla</h3>
+                <p class="mesai-rhythm-text">
+                  <strong>Hesapla</strong> butonuna basarak net mesai süreni saat/dakika cinsinden gör.
+                </p>
+              </li>
+              <li>
+                <h3 class="mesai-rhythm-title">3. Adım – Kaydet</h3>
+                <p class="mesai-rhythm-text">
+                  Süre mantıklıysa <strong>Kaydet</strong> ile arşive ekle. Kayıtlar bölümünden geçmişi incele.
+                </p>
+              </li>
+              <li>
+                <h3 class="mesai-rhythm-title">4. Adım – İzle & Dışa Aktar</h3>
+                <p class="mesai-rhythm-text">
+                  Kayıtlı mesaileri tablo üzerinden takip et, yanlış kayıtları sil, CSV olarak dışa aktar veya
+                  notlarına göndermek için metin formatında paylaş.
+                </p>
+              </li>
+            </ol>
+          </article>
+        </div>
+      </section
+
+      
+<!-- KAYITLAR -->
+      <section id="kayitlar" class="mesai-card p-3 p-md-4 mb-4" aria-label="Kayıtlı mesailer tablosu">
+        <header class="mesai-card-header d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+          <div>
+            <h2 class="fw-semibold mb-1">Kayıtlı Mesailer</h2>
+            <p class="mesai-card-sub mb-0">
+              Tüm mesai girişlerin bu tabloda saklanır. Veriler sadece bu tarayıcıda tutulur.
+            </p>
+          </div>
+          <div class="d-flex flex-column align-items-md-end gap-2">
+            <div class="d-flex flex-wrap justify-content-md-end gap-2">
+              <button id="btnClearAll" type="button" class="btn btn-sm mesai-btn-danger">
+                🧹 Tüm Kayıtları Sil
+              </button>
+              <input type="file" id="txtInput" accept=".txt" class="d-none" />
+              <button id="btnImportTxt" type="button" class="btn mesai-btn-ghost mesai-btn-xs">
+                ⬆️ TXT İçe Aktar
+              </button>
+              <button id="btnExportNotes" type="button" class="btn mesai-btn-ghost mesai-btn-xs">
+                📝 Notlara Gönder
+              </button>
+              <button id="btnExportTxt" type="button" class="btn mesai-btn-ghost mesai-btn-xs">
+                🧾 TXT Olarak Dışa Aktar
+              </button>
+            </div>
+            <div id="totalBox" class="mesai-small fw-semibold">
+              Toplam: 0 saat 0 dk
+            </div>
+          </div>
+        </header>
+
+        <div class="mesai-card-body">
+          <div class="mesai-table-wrapper">
+          <table class="table mesai-table align-middle mb-0">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 4rem;">#</th>
+                <th scope="col">Tarih</th>
+                <th scope="col">Başlangıç</th>
+                <th scope="col">Bitiş</th>
+                <th scope="col">Süre</th>
+                <th scope="col" class="text-end">İşlem</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr>
+                <td colspan="6" class="mesai-table-empty py-3">
+                  Henüz kayıt yok. Önce mesai girişi yapın.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mesai-table-hint mt-2">
+            <div class="mesai-small">
+              İpucu: Yanlış kayıt yaptıysan <strong>Sil</strong> butonunu kullanabilir veya tüm kayıtları temizleyebilirsin.
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+    </main>
+  </div>
+
+  <!-- Bootstrap JS (Bundle) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Uygulama JS -->
+  <script src="app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('service-worker.js').catch(function(err) {
+        console.error('Service worker kaydedilemedi:', err);
+      });
+    });
+  }
+</script>
+
+    <div id="mesaiConfirmBackdrop" class="mesai-confirm-backdrop" role="alertdialog" aria-modal="true" aria-labelledby="mesaiConfirmTitle">
+      <div class="mesai-confirm">
+        <div class="mesai-confirm__title" id="mesaiConfirmTitle">İşlemi onayla</div>
+        <div class="mesai-confirm__text" id="mesaiConfirmText">Bu işlemi yapmak istediğinizden emin misiniz?</div>
+        <div class="mesai-confirm__actions">
+          <button type="button" class="mesai-btn-ghost" id="mesaiConfirmCancel">Vazgeç</button>
+          <button type="button" class="mesai-btn-danger-solid" id="mesaiConfirmOk">Evet, sil</button>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+      </div></main>
+  </div>
+
+  <!-- Bootstrap JS (Bundle) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Uygulama JS -->
+  <script src="app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('service-worker.js').catch(function(err) {
+        console.error('Service worker kaydedilemedi:', err);
+      });
+    });
+  }
+</script>
+
+    <div id="mesaiConfirmBackdrop" class="mesai-confirm-backdrop" role="alertdialog" aria-modal="true" aria-labelledby="mesaiConfirmTitle">
+      <div class="mesai-confirm">
+        <div class="mesai-confirm__title" id="mesaiConfirmTitle">İşlemi onayla</div>
+        <div class="mesai-confirm__text" id="mesaiConfirmText">Bu işlemi yapmak istediğinizden emin misiniz?</div>
+        <div class="mesai-confirm__actions">
+          <button type="button" class="mesai-btn-ghost" id="mesaiConfirmCancel">Vazgeç</button>
+          <button type="button" class="mesai-btn-danger-solid" id="mesaiConfirmOk">Evet, sil</button>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
